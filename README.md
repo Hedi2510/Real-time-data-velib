@@ -1,6 +1,6 @@
 # Real-time-data-velib
 TP project individuel 
-0)lancement : 
+>0)lancement : 
 
 1. Démarrage de Zookeeper
 ./kafka_2.12-2.6.0/bin/zookeeper-server-start.sh ./kafka_2.12-2.6.0/config/zookeeper.properties
@@ -23,9 +23,10 @@ kafka-topics --create --topic velib-projet-final-data --bootstrap-server localho
 lire les msg 
 /kafka_2.12-2.6.0/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic velib-projet -- from-beginning
 
->2)Collecte des données des stations vélibs 
-stations filtré (16107 et 32017)
-envoie des données vers topic vélib
+>2)Kafka : Collecte des données 
+
+-stations filtré (16107 et 32017)
+-envoie des données vers topic vélib
 
 >3)Spark : traitement
 
@@ -34,7 +35,8 @@ envoie des données vers topic vélib
 -création d'un nouveau dataframe (output_df)
 -Envoi des données vers Kafka 
 
->8 Versionnement et Partage
+>4) Versionnement et Partage
+
 git add .
 git commit -m ‘message’
 git push 
