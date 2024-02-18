@@ -1,9 +1,11 @@
 import os
-os.environ["SPARK_HOME"] = "/workspaces/Real-time-data-velib/spark-3.2.3-bin-hadoop2.7"
+
+os.environ["SPARK_HOME"] = "/workspaces/Real-time-data-velib/spark-3.5.0-bin-hadoop3"
 os.environ['PYSPARK_SUBMIT_ARGS'] = '--jars /workspaces/Real-time-data-velib/spark-streaming-kafka-0-10-assembly_2.12-3.2.3.jar pyspark-shell'
 os.environ["JAVA_HOME"] = "/usr/lib/jvm/java-11-openjdk-amd64"
 import findspark
 findspark.init()
+
 from pyspark.sql import SparkSession
 import pyspark.sql.functions as pysqlf
 import pyspark.sql.types as pysqlt
@@ -15,6 +17,7 @@ import pyspark.sql.types as pysqlt
 
 if __name__ == "__main__":
     # Initier spark
+   """
     spark = (SparkSession
              .builder
              .appName("news")
@@ -23,6 +26,14 @@ if __name__ == "__main__":
              .config("spark.jars.packages", "org.apache.spark:spark-sql-kafka-0-10_2.12:3.2.3")
              .getOrCreate()
              )
+    """
+    spark = SparkSession.builder \
+    .appName("news") \
+    .master("local[1]") \
+    .config("spark.sql.shuffle.partitions", "1") \
+    .config("spark.jars.packages", "org.apache.spark:spark-sql-kafka-0-10_2.12:3.2.3") \
+    .config("spark.driver.extraJavaOptions", "-Djava.home=/home/codespace/java/current") \
+    .getOrCreate()
 
     # Lire les données temps réel
     kafka_df = (spark
