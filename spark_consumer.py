@@ -54,8 +54,8 @@ if __name__ == "__main__":
     query = output_df.writeStream \
         .format("kafka") \
         .option("kafka.bootstrap.servers", "localhost:9092") \
-        .option("topic", "velib-projet-clean") \
-        .option("checkpointLocation", "/path/to/checkpoint/dir") \
+        .option("topic", "velib-projet-final-data") \
+        .option("checkpointLocation", "/Users/hedi/MonAppSpark_checkpoints") \
         .start()
 
     query.awaitTermination()

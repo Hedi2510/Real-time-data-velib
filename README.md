@@ -11,12 +11,6 @@ TP project individuel
 3. Pour lancer un script appélé "producer.py" sur python sur un terminal
 python producer.py
 
-
-Telechargement de spark
-tar -xzf spark-3.5.0-bin-hadoop3.tgz
-
-
-spark-3.5.0-bin-hadoop3
 >1)Creation des topic :
 
 TOPIC 1 : velib-projet
@@ -35,9 +29,10 @@ envoie des données vers topic vélib
 
 >3)Spark : traitement
 
-Modification de la section kafka join pour rajouter le code postal du fichier csv 
-
-création d'un nouveau dataframe (dataframe_out)
+-Jointure entre kafka_df et df_station_informations pour inclure le code postal
+-Calcul des indicateurs par code postal
+-création d'un nouveau dataframe (output_df)
+-Envoi des données vers Kafka 
 
 >8 Versionnement et Partage
 git add .
