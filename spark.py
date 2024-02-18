@@ -1,6 +1,6 @@
 import os
-os.environ["SPARK_HOME"] = "/workspaces/real_time_data_streaming/spark-3.2.3-bin-hadoop2.7"
-os.environ['PYSPARK_SUBMIT_ARGS'] = '--jars /workspaces/real_time_data_streaming/spark-streaming-kafka-0-10-assembly_2.12-3.2.3.jar pyspark-shell'
+os.environ["SPARK_HOME"] = "/workspaces/Real-time-data-velib/spark-3.2.3-bin-hadoop2.7"
+os.environ['PYSPARK_SUBMIT_ARGS'] = '--jars /workspaces/Real-time-data-velib/spark-streaming-kafka-0-10-assembly_2.12-3.2.3.jar pyspark-shell'
 os.environ["JAVA_HOME"] = "/usr/lib/jvm/java-11-openjdk-amd64"
 import findspark
 findspark.init()
@@ -29,7 +29,7 @@ if __name__ == "__main__":
                 .readStream
                 .format("kafka")
                 .option("kafka.bootstrap.servers", "localhost:9092")
-                .option("subscribe", "velib")
+                .option("subscribe", "velib-projet")
                 .option("startingOffsets", "earliest")
                 .load()
                 )

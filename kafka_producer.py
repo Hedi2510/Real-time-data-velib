@@ -3,11 +3,6 @@ import time
 import requests
 from kafka import KafkaProducer
 
-# To do: Créer via l'invite de command un topic velib-projet
-# To do: Envoyer les données vers un topic velib-projet
-# To do: Il faut filtrer les données collectées pour ne prendre que les données des deux stations suivants: 16107, 32017
-
-
 def get_velib_data():
     """
     Get velib data from api

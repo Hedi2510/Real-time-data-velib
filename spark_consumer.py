@@ -12,7 +12,6 @@ import pyspark.sql.types as pysqlt
     # - le code postal, le nombre total de vélo disponible par code postal, le nombre total de vélo mécanique par code postal, le nombre total de vélo electrique par code postal
     # - Pousser ce nouveau dataframe vers une file kafka appéler velib-projet-clean
 
-
 if __name__ == "__main__":
     # Initier spark
     spark = (SparkSession
