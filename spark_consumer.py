@@ -1,10 +1,11 @@
+import os
+os.environ["SPARK_HOME"] = "/workspaces/Real-time-data-velib/spark-3.2.3-bin-hadoop2.7"
+os.environ['PYSPARK_SUBMIT_ARGS'] = '--jars /workspaces/Real-time-data-velib/spark-streaming-kafka-0-10-assembly_2.12-3.2.3.jar pyspark-shell'
+os.environ["JAVA_HOME"] = "/usr/lib/jvm/java-11-openjdk-amd64"
+
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, from_json, to_json, struct
 from pyspark.sql.types import StructType, StructField, StringType, IntegerType, ArrayType, MapType, TimestampType
-
-import os
-os.environ["SPARK_HOME"] = "/path/to/your/spark-3.2.3-bin-hadoop2.7"
-os.environ["JAVA_HOME"] = "/path/to/your/java-11-openjdk-amd64"
 import findspark
 findspark.init()
 
